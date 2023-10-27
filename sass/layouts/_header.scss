@@ -1,0 +1,28 @@
+#header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px auto;
+    justify-items: center;
+    grid-template-areas:
+        'avatar'
+        'heading';
+
+    position: relative;
+    width: 300px;
+    margin: 40px auto 20px auto;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 600px) {
+
+    #header {
+        width: 500px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    #header {
+        width: 700px;
+    }
+}
