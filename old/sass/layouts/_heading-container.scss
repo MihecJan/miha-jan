@@ -1,0 +1,39 @@
+.heading-container {
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    h3 {
+        margin-top: 0;
+        font-weight: 400;
+    }
+
+    button {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        margin-bottom: 10px;
+    }
+}
+
+.image {
+    position: relative;
+    overflow: hidden;
+
+    .buffer {
+        width: 100%;
+        height: 200px;
+    }
+
+    img {
+        display: none;
+        width: 100%;
+        height: auto;
+        animation: car 5s infinite ease-in-out;
+
+        &.active {
+            display: block;
+        }
+    }
+}

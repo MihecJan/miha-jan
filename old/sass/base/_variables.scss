@@ -1,0 +1,11 @@
+$bg: #ddd;
+$card: transparentize(darken($bg, 10%), 0.4);
+$border: darken($card, 5%);
+$border-full: rgba($border, 1.0);
+
+$button: darken($card, 5%);
+$button-hover: darken($button, 10%);
+
+$avatar-height: 150px;
+$avatar-width: 150px;
+$avatar-top: -20px;
