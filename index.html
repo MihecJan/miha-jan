@@ -15,14 +15,131 @@
             }
         }
       </script>
-      <script type="module" src="/avatar.js"></script>
+      <script type="module" src="/script.js"></script>
 </head>
 <body>
+    <header>
+        <h1>Miha Jan</h1>
+        <h3>Student at FRI - Computer and Information Science</h3>
+    </header>
+
     <div id="avatar_container">
-        <div id="avatar_loading"></div>
+        <div id="initial_avatar"></div>
+        <div class="progress-container">
+            <div class="text-container">
+                <div class="text">Loading avatar...</div>
+                <div class="percentage">0 %</div>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+            </div>
+        </div>
+
+        <div id="test_balance_container">
+            <div>
+                Scroll fast to interact
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" style="width: 30px" fill="#222" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 500 511.61">
+                    <path fill-rule="nonzero" d="m281.46 249.66-15.5-101.27c-.57-3.8.47-7.81 3.19-10.93 4.92-5.64 13.5-6.24 19.14-1.32l207.07 180.38 1.53 1.59c4.77 5.76 3.96 14.32-1.8 19.08L288.02 508.53c-2.99 2.41-6.96 3.59-11.03 2.87-7.34-1.32-12.23-8.36-10.91-15.69l15.44-85.83c-17.98-2.09-37.59-6.57-57.77-13.36-52.66-17.69-109.96-51.41-153.32-100.33C26.64 246.79-3.02 181.98.25 102.58 1.42 73.66 7 42.84 17.88 10.23 19.22 4.95 23.7.78 29.43.1c7.44-.88 14.19 4.44 15.06 11.87 11.93 100.08 50.53 158.11 98.25 191.8 42.65 30.12 93.19 41.35 138.72 45.89z"/>
+                </svg>
+            </div>
+        </div>
     </div>
-    <div class="scroll">
-        a
-    </div>
+
+    <main>
+        <div id="projects">
+            <h2>Projects</h2>
+
+            <div>
+                <div class="arrow-down"></div>
+                <div class="arrow-down"></div>
+                <div class="arrow-down"></div>
+            </div>
+
+            <section id="simple_crm" class="project">
+                <div class="info">
+                    <header>
+                        <h4>Simple CRM</h4>
+                    </header>
+                    <div class="links">
+                        <a href="#" target="_blank">
+                            <button class="link">Visit🌐</button>
+                        </a>
+                        <a href="#" target="_blank">
+                            <button class="link">Project📁</button>
+                        </a>
+                    </div>
+                    <p>Web-based tool designed to organize and manage client data. Storing client information, including their current stage within the sales funnel, as well as any ongoing projects and associated tasks.</p>
+                    <ul>
+                        <li>Laravel</li>
+                        <li>Tailwind CSS</li>
+                        <li>Alpine.js</li>
+                    </ul>
+                    <button class="toggle-view-btn" data-mode="desktop">🖥️</button>
+                    <div class="toggle-view-text">
+                        <b>View:</b>
+                        <span class="toggle-view-mode">Desktop</span>
+                    </div>
+                </div>
+                <div class="image desktop"></div>
+            </section>
+
+            <section id="morse_transmitter" class="project">
+                <div class="info">
+                    <header>
+                        <h4>MORSE transmitter on FRI-SMS</h4>
+                    </header>
+                    <div class="links">
+                        <a href="#" target="_blank">
+                            <button class="link">Visit🌐</button>
+                        </a>
+                        <a href="#" target="_blank">
+                            <button class="link">Project📁</button>
+                        </a>
+                    </div>
+                    <p>App is intended to convert a sequence of ASCII characters into MORSE code, which can be then played on an LED light. Also mapping, recording and playing button state.</p>
+                    <ul>
+                        <li>Assembly</li>
+                    </ul>
+                </div>
+                <div class="image desktop"></div>
+            </section>
+
+            <section id="majafrizura" class="project">
+                <div class="info">
+                    <header>
+                        <h4>Frizerski salon Maja</h4>
+                    </header>
+                    <div class="links">
+                        <a href="https://majafrizura.si/" target="_blank">
+                            <button class="link">Visit🌐</button>
+                        </a>
+                        <a href="https://github.com/MihecJan/Frizerski-salon-Maja/tree/main/code" target="_blank">
+                            <button class="link">Project📁</button>
+                        </a>
+                    </div>
+                    <p>Statična spletna stran za frizerski salon.</p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                    <button class="toggle-view-btn" data-mode="desktop">🖥️</button>
+                    <div class="toggle-view-text">
+                        <b>View:</b>
+                        <span class="toggle-view-mode">Desktop</span>
+                    </div>
+                </div>
+                <div class="image desktop"></div>
+            </section>
+
+            <div>TESTING</div>
+            <div>TESTING</div>
+            <div>TESTING</div>
+            <div>TESTING</div>
+            <div>TESTING</div>
+        </div>
+    </main>
 </body>
 </html>

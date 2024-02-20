@@ -1,18 +1,351 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+    --dark-gray: #222;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url(/public/images/dot-grid.jpg);
+  margin: 0;
+  color: var(--dark-gray);
+}
+
+.hidden {
+    display: none;
+}
+
+hr {
+    border-bottom: 1px solid var(--dark-gray);
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+h4 {
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+}
+
+header {
+    width: 300px;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
 #avatar_container {
-    position: fixed;
-    height: 500px;
-    width: 500px;
-    background: #eee;
-    transition-property: transform;
-    transition-duration: 250ms;
-    transition-timing-function: ease-out;
+    position: absolute;
+    height: 180px;
+    width: 180px;
+    top: 45%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 1;
+    transition: transform 500ms ease, opacity 1500ms ease, right 1500ms ease, top 1500ms ease;
+    z-index: 1;
+}
+
+#avatar_container.percent-completion {
+    opacity: 0;
+}
+
+#avatar_container.loaded {
+    height: 200px;
+    width: 200px;
+}
+
+#avatar_container.move {
+    transform: translate(70%, -50%);
+}
+
+#avatar_container.to-side {
+    right: 32%;
+    top: 15%;
 }
 
 #avatar_container.scrollReturn {
     transition-duration: 1s;
+}
+
+#initial_avatar {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 10px 10px rgba(183, 183, 183, 0.6);
+    animation: animate-border-radius 8s linear infinite;
+    background-image: url(/public/images/avatar.jpg);
+    background-size: cover;
+    transition-property: transform opacity;
+    transition-duration: 750ms;
     transition-timing-function: ease;
 }
 
-.scroll {
-    height: 2000px;
+#initial_avatar.percent-completion {
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+#initial_avatar.percent-completion+.progress-container {
+    opacity: 0;
+}
+
+.progress-container {
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translateX(-50%);
+    transition-property: opacity;
+    transition-duration: 750ms;
+    transition-timing-function: ease;
+}
+
+.progress-container .text-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.progress-container .bar-wrapper {
+    width: 160px;
+    height: 15px;
+    /* border: 1px solid #666; */
+    /* background-color: #eee; */
+}
+
+.progress-container .bar {
+    width: 0;
+    height: 100%;
+    background-color: #444;
+}
+
+#test_balance_container {
+    position: absolute;
+    opacity: 0;
+    top: 50px;
+    left: -35px;
+    width: 120px;
+    font-size: 18px;
+    transition: opacity 250ms;
+}
+
+#test_balance_container.loaded {
+    opacity: 1;
+}
+
+#test_balance_container.balance-tested {
+    opacity: 0;
+}
+
+#test_balance_container svg {
+    margin: 10px 0 0 30px;
+}
+
+main {
+    margin-top: 320px;
+}
+
+.arrow-down {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 150px auto;
+    transform: rotate(45deg);
+    border-right: 2px solid #777;
+    border-bottom: 2px solid #777;
+    animation-name: arrow-down-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.arrow-down:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #777;
+    border-bottom: 2px solid #777;
+    display: block;
+    transform: translate(20px, 20px);
+}
+.arrow-down:nth-child(2) {
+    animation-delay: 0.5s;
+    border-color: #999;
+}
+.arrow-down:nth-child(2):after {
+    border-color: #999;
+}
+.arrow-down:nth-child(3) {
+    animation-delay: 1s;
+    border-color: #bbb;
+}
+.arrow-down:nth-child(3):after {
+    border-color: #bbb;
+}
+
+.project {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+}
+
+.project header {
+    margin: 0;
+}
+
+.project .info {
+    max-width: 220px;
+}
+
+.project .info h4 {
+    max-width: 160px;
+    margin: 10px 0;
+}
+
+.project .info .links {
+    margin: 10px auto;
+}
+
+.project .info p {
+    margin: 10px auto;
+}
+
+.project .info ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-weight: bold;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.project .info ul li {
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.project .info button {
+    border: 1px solid #888;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.project .info .links a {
+    text-decoration: none;
+}
+
+#simple_crm .image.desktop {
+
+}
+
+#simple_crm .image.mobile {
+
+}
+
+#projects .image {
+    border-radius: 4px;
+    background-size: cover;
+}
+
+#majafrizura .image.desktop {
+    height: 200px;
+    background-image: url(/public/images/majafrizura-full-desktop.jpg);
+}
+
+#majafrizura .image.mobile {
+    background-image: url(/public/images/majafrizura-mobile.jpg);
+    height: 400px;
+}
+
+@media only screen and (min-width: 640px) {
+    header {
+        width: 500px;
+    }
+
+    main {
+        margin-top: 340px;
+    }
+
+    #avatar_container.loaded {
+        height: 250px;
+        width: 250px;
+    }
+
+    #projects .card-container {
+        width: 400px;
+        margin: 0 auto 0 20%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        width: 650px;
+    }
+
+    #avatar_container {
+        top: 38%;
+    }
+
+    #avatar_container.to-side {
+        right: 28%;
+        top: 18%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #avatar_container.loaded {
+        height: 300px;
+        width: 300px;
+    }
+
+    #avatar_container {
+        top: 45%;
+    }
+
+    main {
+        margin-top: 460px;
+    }
+}
+
+@keyframes animate-border-radius {
+    0% {
+        border-radius: 40% 50% 60% 50%;
+    }
+    25% {
+        border-radius: 50% 40% 50% 60%;
+    }
+    50% {
+        border-radius: 60% 50% 40% 50%;
+    }
+    75% {
+        border-radius: 50% 60% 50% 40%;
+    }
+    100% {
+        border-radius: 40% 50% 60% 50%;
+    }
+}
+
+@keyframes arrow-down-animation {
+    from {
+        transform: rotate(45deg) translate(0);
+    }
+    to {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
 }
