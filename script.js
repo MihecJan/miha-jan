@@ -97,6 +97,7 @@ const setupScene = gltf => {
     const hardLandingClip = THREE.AnimationClip.findByName(clips, 'hard_landing');
     const fallingIdleClip = THREE.AnimationClip.findByName(clips, 'falling_idle');
     const fallingToLandingClip = THREE.AnimationClip.findByName(clips, 'falling_to_landing');
+    const backflipClip = THREE.AnimationClip.findByName(clips, 'backflip');
     const actions = {
         'jumping_down': mixer.clipAction(jumpingDownClip),
         'waving': mixer.clipAction(wavingClip),
@@ -104,6 +105,7 @@ const setupScene = gltf => {
         'hard_landing': mixer.clipAction(hardLandingClip),
         'falling_idle': mixer.clipAction(fallingIdleClip),
         'falling_to_landing': mixer.clipAction(fallingToLandingClip),
+        'backflip': mixer.clipAction(backflipClip),
     };
 
     const handleScrollAction = scrollYDiff => {
@@ -167,15 +169,38 @@ const setupScene = gltf => {
             avatarContainer.classList.add('scrollReturn');
         }, 400);
 
-        console.log(Math.abs(scrollYDiff));
         /* If the scroll was strong, do something with the avatar.
-        Then do nothing to the avatar for 1500 ms (to finish the animation).*/
-        if (Math.abs(scrollYDiff) > 20) {
+        Then do nothing to the avatar for 1500 ms (to finish the animation).
+        Also don't do anything if avatar is doing a backflip. */
+        if (Math.abs(scrollYDiff) > 20 && !(currentActionStr === 'backflip')) {
             const now = new Date().getTime();
             if (now - lastBalanceAction < 1500) return;
             lastBalanceAction = now;
 
             handleScrollAction(scrollYDiff);
+        }
+    });
+
+    /* Do a backflip if user clicks on the avatar. */
+    const raycaster = new THREE.Raycaster();
+    avatarContainer.addEventListener('click', e => {
+        const coords = {
+            x: (e.offsetX / avatarContainer.clientWidth) * 2 - 1,
+            y: -(e.offsetY / avatarContainer.clientHeight) * 2 + 1
+        };
+
+        raycaster.setFromCamera(coords, camera);
+        const intersections = raycaster.intersectObject(avatar);
+        
+        if (intersections.length > 0 && ['breathing_idle', 'waving'].includes(currentActionStr)) {
+            currentActionStr = switchAction(actions, currentActionStr, 'backflip', 0.5);
+
+            // If clicked at waving action, stop the default animation.
+            clearTimeout(defaultAnimation2);
+
+            setTimeout(() => {
+                currentActionStr = switchAction(actions, currentActionStr, 'breathing_idle', 0.5);
+            }, 2700);
         }
     });
 
