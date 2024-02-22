@@ -6,12 +6,13 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 let avatarContainer;
 let oldScrollY = window.scrollY;
+let toggleView;
 
 window.onload = () => {
     avatarContainer = document.getElementById('avatar_container');
     loadModel();
     
-    const toggleView = document.querySelectorAll(".toggle-view-btn");
+    toggleView = document.querySelectorAll(".toggle-view-btn");
     toggleView.forEach(btn => {
         btn.addEventListener("click", e => handleProjectViewModeSwitch(e));
     });
@@ -270,7 +271,7 @@ const createPedestal = scene => {
     const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
     groundMesh.castShadow = false;
     groundMesh.receiveShadow = true;
-    groundMesh.position.y = -0.1;
+    groundMesh.position.y = -0.05;
     scene.add(groundMesh);
 }
 
@@ -285,4 +286,27 @@ const loadAvatar = (gltf, scene) => {
     scene.add(avatar);
 
     return avatar;
+}
+
+const handleProjectViewModeSwitch = e => {
+    const cardID = e.currentTarget.parentElement.parentElement.parentElement.id;
+    const btn = document.querySelector("#" + cardID + " .toggle-view-btn");
+    const modeText = document.querySelector("#" + cardID + " .toggle-view-mode");
+    const image = document.querySelector("#" + cardID + " .image");
+    const mode = btn.getAttribute("data-mode");
+
+    if (mode === "desktop") {
+        btn.setAttribute("data-mode", "mobile");
+        btn.textContent = "📱";
+        modeText.textContent = "Mobile";
+        image.classList.remove("desktop");
+        image.classList.add("mobile");
+    }
+    else {
+        btn.setAttribute("data-mode", "desktop");
+        btn.textContent = "🖥️";
+        modeText.textContent = "Desktop";
+        image.classList.remove("mobile");
+        image.classList.add("desktop");
+    }
 }

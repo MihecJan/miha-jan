@@ -23,6 +23,7 @@
         <h3>Student at FRI - Computer and Information Science</h3>
     </header>
 
+    <!-- Avatar container -->
     <div id="avatar_container">
         <div id="initial_avatar"></div>
         <div class="progress-container">
@@ -46,8 +47,10 @@
             </div>
         </div>
     </div>
+    <!-- End avatar container -->
 
     <main>
+        <!-- Projects -->
         <div id="projects">
             <h2>Projects</h2>
 
@@ -57,89 +60,107 @@
                 <div class="arrow-down"></div>
             </div>
 
-            <section id="simple_crm" class="project">
-                <div class="info">
-                    <header>
-                        <h4>Simple CRM</h4>
-                    </header>
-                    <div class="links">
-                        <a href="#" target="_blank">
-                            <button class="link">Visit🌐</button>
-                        </a>
-                        <a href="#" target="_blank">
-                            <button class="link">Project📁</button>
-                        </a>
+            <div id="project_container">
+                <section id="simple_crm" class="project">
+                    <div class="info">
+                        <header>
+                            <h4>Simple CRM</h4>
+                        </header>
+                        <div class="links">
+                            <a href="#" target="_blank">
+                                <button class="link">Visit🌐</button>
+                            </a>
+                            <a href="https://github.com/MihecJan/simple-CRM" target="_blank">
+                                <button class="link">Project📁</button>
+                            </a>
+                        </div>
+                        <p>Web-based tool designed to organize and manage client data. Storing client information, including their current stage within the sales funnel, as well as any ongoing projects and associated tasks.</p>
+                        <ul>
+                            <li>Laravel</li>
+                            <li>Tailwind CSS</li>
+                            <li>Alpine.js</li>
+                        </ul>
+                        <div class="mode">
+                            <button class="toggle-view-btn" data-mode="desktop">🖥️</button>
+                            <div class="toggle-view-text">
+                                <b>View:</b>
+                                <span class="toggle-view-mode">Desktop</span>
+                            </div>
+                        </div>
                     </div>
-                    <p>Web-based tool designed to organize and manage client data. Storing client information, including their current stage within the sales funnel, as well as any ongoing projects and associated tasks.</p>
-                    <ul>
-                        <li>Laravel</li>
-                        <li>Tailwind CSS</li>
-                        <li>Alpine.js</li>
-                    </ul>
-                    <button class="toggle-view-btn" data-mode="desktop">🖥️</button>
-                    <div class="toggle-view-text">
-                        <b>View:</b>
-                        <span class="toggle-view-mode">Desktop</span>
+                    <div class="image desktop"></div>
+                </section>
+    
+                <section id="morse_transmitter" class="project">
+                    <div class="info">
+                        <header>
+                            <h4>MORSE transmitter on FRI-SMS</h4>
+                        </header>
+                        <div class="links">
+                            <a href="https://youtu.be/kRFyE61AGdA" target="_blank">
+                                <button class="link">Video🎥</button>
+                            </a>
+                        </div>
+                        <p>App is intended to convert a sequence of ASCII characters into MORSE code, which can be then played on an LED light. Also mapping, recording and playing button state.</p>
+                        <ul>
+                            <li>Assembly</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="image desktop"></div>
-            </section>
-
-            <section id="morse_transmitter" class="project">
-                <div class="info">
-                    <header>
-                        <h4>MORSE transmitter on FRI-SMS</h4>
-                    </header>
-                    <div class="links">
-                        <a href="#" target="_blank">
-                            <button class="link">Visit🌐</button>
-                        </a>
-                        <a href="#" target="_blank">
-                            <button class="link">Project📁</button>
-                        </a>
+                    <div class="image desktop"></div>
+                </section>
+    
+                <section id="majafrizura" class="project">
+                    <div class="info">
+                        <header>
+                            <h4>Frizerski salon Maja</h4>
+                        </header>
+                        <div class="links">
+                            <a href="https://majafrizura.si/" target="_blank">
+                                <button class="link">Visit🌐</button>
+                            </a>
+                            <a href="https://github.com/MihecJan/Frizerski-salon-Maja/tree/main/code" target="_blank">
+                                <button class="link">Project📁</button>
+                            </a>
+                        </div>
+                        <p>This static website showcases a range of hairdressing services and provides access to contact information. Visitors can explore various offerings and get in touch.</p>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                        <div class="mode">
+                            <button class="toggle-view-btn" data-mode="desktop">🖥️</button>
+                            <div class="toggle-view-text">
+                                <b>View:</b>
+                                <span class="toggle-view-mode">Desktop</span>
+                            </div>
+                        </div>
                     </div>
-                    <p>App is intended to convert a sequence of ASCII characters into MORSE code, which can be then played on an LED light. Also mapping, recording and playing button state.</p>
-                    <ul>
-                        <li>Assembly</li>
-                    </ul>
-                </div>
-                <div class="image desktop"></div>
-            </section>
-
-            <section id="majafrizura" class="project">
-                <div class="info">
-                    <header>
-                        <h4>Frizerski salon Maja</h4>
-                    </header>
-                    <div class="links">
-                        <a href="https://majafrizura.si/" target="_blank">
-                            <button class="link">Visit🌐</button>
-                        </a>
-                        <a href="https://github.com/MihecJan/Frizerski-salon-Maja/tree/main/code" target="_blank">
-                            <button class="link">Project📁</button>
-                        </a>
-                    </div>
-                    <p>Statična spletna stran za frizerski salon.</p>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Bootstrap</li>
-                    </ul>
-                    <button class="toggle-view-btn" data-mode="desktop">🖥️</button>
-                    <div class="toggle-view-text">
-                        <b>View:</b>
-                        <span class="toggle-view-mode">Desktop</span>
-                    </div>
-                </div>
-                <div class="image desktop"></div>
-            </section>
-
-            <div>TESTING</div>
-            <div>TESTING</div>
-            <div>TESTING</div>
-            <div>TESTING</div>
-            <div>TESTING</div>
+                    <div class="image desktop"></div>
+                </section>
+            </div>
         </div>
+        <!-- End projects -->
+
+        <section id="contact">
+            <header>
+                <h2>Get in touch</h2>
+            </header>
+            <form action="get_in_touch.php" method="post">
+                <label for="name">Name:</label>
+                <input name="name" type="text">
+
+                <label for="email">Email:</label>
+                <input name="email" type="email">
+
+                <label for="message">Message:</label>
+                <textarea name="message"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <footer></footer>
     </main>
 </body>
 </html>

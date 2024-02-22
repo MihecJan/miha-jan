@@ -2,14 +2,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 :root {
-    --dark-gray: #222;
+    --gray-50: #fafafa;
+    --gray-100: #f5f5f5;
+    --gray-200: #e5e5e5;
+    --gray-300: #d4d4d4;
+    --gray-400: #a3a3a3;
+    --gray-500: #737373;
+    --gray-600: #525252;
+    --gray-700: #404040;
+    --gray-800: #262626;
+    --gray-900: #171717;
+    --gray-950: #0a0a0a;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   background-image: url(/public/images/dot-grid.jpg);
   margin: 0;
-  color: var(--dark-gray);
+  color: var(--gray-800);
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: var(--gray-700);
+    color: #eee;
+}
+
+button:hover {
+    background-color: var(--gray-800);
+}
+
+input, textarea {
+    padding: 8px;
+    background: var(--gray-300);
+    border: none;
+    border-radius: 4px;
+    font-family: "Poppins", sans-serif;
 }
 
 .hidden {
@@ -17,7 +49,7 @@ body {
 }
 
 hr {
-    border-bottom: 1px solid var(--dark-gray);
+    border-bottom: 1px solid var(--gray-800);
 }
 
 h1, h2, h3 {
@@ -50,7 +82,7 @@ header {
     position: absolute;
     height: 180px;
     width: 180px;
-    top: 45%;
+    top: 320px;
     right: 50%;
     transform: translate(50%, -50%);
     opacity: 1;
@@ -120,8 +152,6 @@ header {
 .progress-container .bar-wrapper {
     width: 160px;
     height: 15px;
-    /* border: 1px solid #666; */
-    /* background-color: #eee; */
 }
 
 .progress-container .bar {
@@ -193,6 +223,11 @@ main {
     border-color: #bbb;
 }
 
+#project_container {
+    width: 70%;
+    margin-left: 5%;
+}
+
 .project {
     padding: 0 15px;
     display: flex;
@@ -206,10 +241,6 @@ main {
     margin: 0;
 }
 
-.project .info {
-    max-width: 220px;
-}
-
 .project .info h4 {
     max-width: 160px;
     margin: 10px 0;
@@ -217,10 +248,15 @@ main {
 
 .project .info .links {
     margin: 10px auto;
+    display: flex;
+    gap: 5px;
 }
 
 .project .info p {
-    margin: 10px auto;
+    margin: 20px 0;
+    padding-left: 10px;
+    color: var(--gray-700);
+    border-left: 2px solid var(--gray-600);
 }
 
 .project .info ul {
@@ -239,33 +275,44 @@ main {
     background-color: #fff;
 }
 
-.project .info button {
-    border: 1px solid #888;
-    padding: 6px 12px;
-    border-radius: 4px;
-    background-color: #fff;
-}
-
 .project .info .links a {
     text-decoration: none;
 }
 
-#simple_crm .image.desktop {
-
-}
-
-#simple_crm .image.mobile {
-
+.project .mode {
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #projects .image {
     border-radius: 4px;
     background-size: cover;
+    box-shadow:
+        3px 3px 4px var(--gray-400),
+        6px 6px 2px var(--gray-300);
+}
+
+#simple_crm .image.desktop {
+    height: 180px;
+    background-image: url(/public/images/simple-crm-desktop.jpg);
+}
+
+#simple_crm .image.mobile {
+    background-image: url(/public/images/simple-crm-mobile.jpg);
+    height: 400px;
+    width: 200px;
+}
+
+#morse_transmitter .image {
+    height: 220px;
+    background-image: url(/public/images/morse-oddajnik.jpg);
 }
 
 #majafrizura .image.desktop {
     height: 200px;
-    background-image: url(/public/images/majafrizura-full-desktop.jpg);
+    background-image: url(/public/images/majafrizura-desktop.jpg);
 }
 
 #majafrizura .image.mobile {
@@ -273,13 +320,40 @@ main {
     height: 400px;
 }
 
+#contact header {
+    margin: 200px auto 0 auto;
+}
+
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 5%;
+    padding: 0 15px;
+}
+
+#contact form label {
+    margin-top: 15px;
+}
+
+#contact button {
+    margin-top: 8px;
+    width: 100px;
+}
+
+footer {
+    margin-top: 100px;
+    height: 100px;
+}
+
 @media only screen and (min-width: 640px) {
     header {
         width: 500px;
     }
 
-    main {
-        margin-top: 340px;
+    #avatar_container {
+        top: 300px;
     }
 
     #avatar_container.loaded {
@@ -287,39 +361,137 @@ main {
         width: 250px;
     }
 
-    #projects .card-container {
+    main {
+        margin-top: 340px;
+    }
+
+    #project_container, #contact form {
         width: 400px;
-        margin: 0 auto 0 20%;
+        margin: 0 auto 0 10%;
     }
 }
 
 @media only screen and (min-width: 768px) {
     header {
+        margin: 40px auto;
         width: 650px;
     }
 
     #avatar_container {
-        top: 38%;
+        top: 300px;
     }
 
     #avatar_container.to-side {
         right: 28%;
         top: 18%;
     }
+
+    #project_container, #contact form {
+        width: 400px;
+        margin: 0 auto 0 15%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
+    h4 {
+        font-size: 20px;
+    }
+
     #avatar_container.loaded {
         height: 300px;
         width: 300px;
     }
 
     #avatar_container {
-        top: 45%;
+        top: 320px;
     }
 
     main {
-        margin-top: 460px;
+        margin-top: 360px;
+    }
+
+    #project_container, #contact form {
+        width: 500px;
+        margin: 0 auto 0 20%;
+    }
+
+    #simple_crm .image.desktop {
+        height: 230px;
+    }
+
+    #morse_transmitter .image {
+        height: 260px;
+    }
+
+    #majafrizura .image.desktop {
+        height: 280px;
+    }
+
+    #majafrizura .image.mobile {
+        width: 280px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    header {
+        margin: 60px auto;
+    }
+
+    #avatar_container {
+        top: 360px;
+    }
+
+    main {
+        margin-top: 400px;
+    }
+
+    #project_container, #contact form {
+        width: 55ch;
+        margin: 0 auto 0 23%;
+    }
+}
+
+@media only screen and (min-width: 1536px) {
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 28px;
+    }
+    h4 {
+        font-size: 22px;
+    }
+
+    header {
+        margin: 80px auto;
+    }
+
+    #avatar_container {
+        top: 480px;
+    }
+
+    main {
+        margin-top: 480px;
+    }
+
+    #project_container, #contact form {
+        width: 60ch;
+        margin: 0 auto 0 25%;
+    }
+
+    #simple_crm .image.desktop {
+        height: 280px;
+    }
+
+    #morse_transmitter .image {
+        height: 320px;
+    }
+
+    #majafrizura .image.desktop {
+        height: 320px;
     }
 }
 
